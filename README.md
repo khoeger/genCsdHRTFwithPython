@@ -16,3 +16,6 @@ They are necessary for creating binaural 3d sound files.
 ## Useful information for 3d audio endeavors
 - [csound tutorial: panning and spatialization](http://files.csound-tutorial.net/floss_manual/Release03/Cs_FM_03_ScrapBook/b-panning-and-spatialization.html) This describes lots of what I'd like to know about the topic
 - [Doppler Effect and Binaural Math](https://diamonddissertation.blogspot.com)
+
+# About the scale refs
+[Eq Tempered Scale Doc](http://pages.mtu.edu/~suits/notefreqs.html)
