@@ -31,25 +31,8 @@ with open(outCsndFile,'w') as f:
 
     wCsInstruments.wInstrumentForematter(f,sr,kr,nchnls)
 
-    f.write('gasrc init 0\n\n')
-
-    f.write('instr 1		;a sine wave\n\n')
-
-    f.write('  kamp = p4\n')
-    f.write('  kcps = p5\n')
-    #f.write('  icps = 442\n')
-    f.write('  ifn = 1\n\n')
-#    f.write('  a1 pluck kamp, kcps, icps, 0, 1\n\n')
-    f.write('  a1 oscil kamp, kcps, ifn\n\n')
-    f.write('  gasrc = a1\n\n')
-    f.write('endin\n\n')
-
-    f.write('instr 10	;uses output from instr1 as source\n\n')
-    f.write('  kaz	linseg 720, p3, 0		;2 full rotations\n\n')
-    f.write('  kel	linseg -10, p3, 0		;falling down through space\n\n')
-    f.write('  aleft,aright hrtfmove2 gasrc, kaz, kel, "hrtf-44100-left.dat","hrtf-44100-right.dat"\n\n')
-    f.write('  outs	aleft, aright\n\n')
-    f.write('endin\n\n')
+    wCsInstruments.sinInstr(f,1,'p4','p5',1) # sine instr
+    wCsInstruments.hrtfMove2ExInstr(f,1,720,0,'p3',-10,0,'p3')
 
     f.write('</CsInstruments>\n')
     f.write('<CsScore>\n\n')
