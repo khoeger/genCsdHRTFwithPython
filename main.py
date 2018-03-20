@@ -6,9 +6,13 @@
 #  Import packages/libraries
 import ctcsound
 import wCsOptions
+import wCsInstruments
 
 # Define variables
 outCsndFile = "hrtfmove2.csd"
+sr = 44100  # audio sample rate,
+kr = 4410   # control rate
+nchnls =2   # number of channels
 
 # Create class object instances
 cs = ctcsound.Csound()
@@ -20,14 +24,12 @@ with open(outCsndFile,'w') as f:
     f.write('<CsoundSynthesizer>\n\n')
 
     # Decide on Options
-    wCsOptions.writeCsOptions(f)#,realtime=False,savePath="samplehrtf.wav")
+    wCsOptions.writeCsOptions(f)
 
     # Start creating CsInstruments
     f.write('<CsInstruments>\n\n')
-    f.write('sr = 44100\n')
-    f.write('kr = 4410\n')
-    f.write('ksmps = 10\n')
-    f.write('nchnls = 2\n\n')
+
+    wCsInstruments.wInstrumentForematter(f,sr,kr,nchnls)
 
     f.write('gasrc init 0\n\n')
 
