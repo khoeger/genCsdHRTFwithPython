@@ -28,13 +28,11 @@ with open(outCsndFile,'w') as f:
 
     # Start creating CsInstruments
     f.write('<CsInstruments>\n\n')
-
     wCsInstruments.wInstrumentForematter(f,sr,kr,nchnls)
-
     wCsInstruments.sinInstr(f,1,'p4','p5',1) # sine instr
-    wCsInstruments.hrtfMove2ExInstr(f,1,720,0,'p3',-10,0,'p3')
-
+    wCsInstruments.hrtfMove2ExInstr(f,1,720,0,'p3',-10,0,'p3') #hrtf instr
     f.write('</CsInstruments>\n')
+    
     f.write('<CsScore>\n\n')
     f.write(';wavetable\n')
     f.write('f1 0 16384 10 1\n')
