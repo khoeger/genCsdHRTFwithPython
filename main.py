@@ -5,9 +5,10 @@
 """
 #  Import packages/libraries
 import ctcsound
+import wCsOptions
 
 # Define variables
-outCsndFile = "2_Hrtfmove2.csd"
+outCsndFile = "hrtfmove2.csd"
 
 # Create class object instances
 cs = ctcsound.Csound()
@@ -19,11 +20,7 @@ with open(outCsndFile,'w') as f:
     f.write('<CsoundSynthesizer>\n\n')
 
     # Decide on Options
-    f.write('<CsOptions>\n')
-    f.write('; Select flags here\n')
-    f.write('; realtime audio out\n')
-    f.write('-o dac \n')
-    f.write('</CsOptions>\n')
+    wCsOptions.writeCsOptions(f)#,realtime=False,savePath="samplehrtf.wav")
 
     # Start creating CsInstruments
     f.write('<CsInstruments>\n\n')
@@ -47,7 +44,7 @@ with open(outCsndFile,'w') as f:
 
     f.write('instr 10	;uses output from instr1 as source\n\n')
     f.write('  kaz	linseg 720, p3, 0		;2 full rotations\n\n')
-    f.write('  kel	linseg 10, p3, 0		;falling down through space\n\n')
+    f.write('  kel	linseg -10, p3, 0		;falling down through space\n\n')
     f.write('  aleft,aright hrtfmove2 gasrc, kaz, kel, "hrtf-44100-left.dat","hrtf-44100-right.dat"\n\n')
     f.write('  outs	aleft, aright\n\n')
     f.write('endin\n\n')
