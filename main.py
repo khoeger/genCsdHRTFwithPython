@@ -7,6 +7,7 @@
 import ctcsound
 import wCsOptions
 import wCsInstruments
+import wCsScore
 
 # Define variables
 outCsndFile = "hrtfmove2.csd"
@@ -32,7 +33,7 @@ with open(outCsndFile,'w') as f:
     wCsInstruments.sinInstr(f,1,'p4','p5',1) # sine instr
     wCsInstruments.hrtfMove2ExInstr(f,1,720,0,'p3',-10,0,'p3') #hrtf instr
     f.write('</CsInstruments>\n')
-    
+
     f.write('<CsScore>\n\n')
     f.write(';wavetable\n')
     f.write('f1 0 16384 10 1\n')
