@@ -34,11 +34,10 @@ with open(outCsndFile,'w') as f:
     wCsInstruments.hrtfMove2ExInstr(f,1,720,0,'p3',-10,0,'p3') #hrtf instr
     f.write('</CsInstruments>\n')
 
+    # Start creating CsScore
     f.write('<CsScore>\n\n')
-    f.write(';wavetable\n')
-    f.write('f1 0 16384 10 1\n')
-    f.write('; Play Instrument 1: a simple arpeggio\n')
-    f.write('i1 0 .2 15000 440.00 \n')
+    wCsScore.funcTable(f,1, 0, 16384, 10, 1)    # wavetable
+    f.write('i1 0 .2 15000 440.00 \n')          # instrument 1
     f.write('i1 + .2 15000 466.16 \n')
     f.write('i1 + .2 15000 493.88 \n')
     f.write('i1 + .2 15000 523.25 \n')
@@ -48,10 +47,12 @@ with open(outCsndFile,'w') as f:
     f.write('i1 + 1.5 15000 783.99 \n')
     f.write('i1 + 1.5 15000 880.00 \n')
     f.write('i1 + 1.5 15000 830.61 \n')
-    f.write('i1 + 1.5 15000 783.99 \n\n')
+    f.write('i1 + 1.5 15000 783.99 \n')
+    f.write('i1 + 1.5 15000 987.77 \n')
+    f.write('i1 + 4 15000 659.25\n\n')
 
     f.write('; Play Instrument 10 for 10 seconds.\n')
-    f.write('i10 0 10\n\n')
+    f.write('i10 0 15\n\n')
 
     f.write('</CsScore>\n')
     f.write('</CsoundSynthesizer>')
