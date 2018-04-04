@@ -1,3 +1,6 @@
+def listParams(paramList):
+    for item in paramList:
+        return(str(item)+' ')
 def funcTable(f, tableNum, time, tableSize, genNum, paramsGen):
     """
         Generate F statment
@@ -10,4 +13,7 @@ def funcTable(f, tableNum, time, tableSize, genNum, paramsGen):
         paramsGen = parameters determined by function
         See http://csounds.com/manual/html/f.html
     """
-    f.write('f'+str(tableNum)+' '+str(time)+' '+str(tableSize)+' '+str(genNum)+' '+str(paramsGen)+'\n')
+    f.write('f'+str(tableNum)+' '+str(time)+' '+str(tableSize)+' '+str(genNum))
+    f.write(' '+listParams(paramsGen)+'\n')
+
+#def playInstrument(f, iNum, dur, iParams)

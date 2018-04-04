@@ -36,7 +36,7 @@ with open(outCsndFile,'w') as f:
 
     # Start creating CsScore
     f.write('<CsScore>\n\n')
-    wCsScore.funcTable(f,1, 0, 16384, 10, 1)    # wavetable
+    wCsScore.funcTable(f,1, 0, 16384, 10, [1])  # wavetable
     f.write('i1 0 .2 15000 440.00 \n')          # instrument 1
     f.write('i1 + .2 15000 466.16 \n')
     f.write('i1 + .2 15000 493.88 \n')
