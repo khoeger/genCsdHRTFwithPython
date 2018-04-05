@@ -38,25 +38,31 @@ with open(outCsndFile,'w') as f:
     f.write('<CsScore>\n\n')
     # function table
     wCsScore.funcTable(f,1, 0, 16384, 10, [1])
-    # instrument 1
-    wCsScore.playNote(f, 1, 0, 0.2, [15000, 440.00] )
-    wCsScore.playNote(f, 1, '+', 0.2, [15000, 466.16])
-    wCsScore.playNote(f, 1, '+', 0.2, [15000, 493.88 ])
-    wCsScore.playNote(f, 1, '+', 0.2, [15000, 523.25 ])
-    wCsScore.playNote(f, 1, '+', 0.2, [15000, 587.33])
-    wCsScore.playNote(f, 1, '+', 1.5, [15000, 659.25])
-    wCsScore.playNote(f, 1, '+', 1.5, [15000, 698.46])
-    wCsScore.playNote(f, 1, '+', 1.5, [15000, 783.99])
-    wCsScore.playNote(f, 1, '+', 1.5, [15000, 880.00])
-    wCsScore.playNote(f, 1, '+', 1.5, [15000, 830.6])
-    wCsScore.playNote(f, 1, '+', 1.5, [15000, 783.99])
-    wCsScore.playNote(f, 1, '+', 1.5, [15000, 987.77])
-    wCsScore.playNote(f, 1, '+', 4, [15000, 659.25])
+    # verse 1 - named
+    f.write('\nm v1\n\n')
+    # instrument 1 - http://www.csounds.com/manual/html/ScoreStatements.html
+    wCsScore.playNote(f, 1, 0.0, 0.2, [15000, 440.00] )
+    wCsScore.playNote(f, 1, 0.2, 0.2, [15000, 466.16])
+    wCsScore.playNote(f, 1, 0.4, 0.2, [15000, 493.88 ])
+    wCsScore.playNote(f, 1, 0.6, 0.2, [15000, 523.25 ])
+    wCsScore.playNote(f, 1, 0.8, 0.2, [15000, 587.33])
+    wCsScore.playNote(f, 1, 1.0, 1.5, [15000, 659.25])
+    wCsScore.playNote(f, 1, 2.5 ,1.5, [15000, 698.46])
+    wCsScore.playNote(f, 1, 4.0, 1.5, [15000, 783.99])
+    wCsScore.playNote(f, 1, 5.5, 1.5, [15000, 880.00])
+    wCsScore.playNote(f, 1, 7.0, 1.5, [15000, 830.6])
+    wCsScore.playNote(f, 1, 8.5, 1.5, [15000, 783.99])
+    wCsScore.playNote(f, 1.1, 10.0, 1.5, [14500, 987.77])
+    wCsScore.playNote(f, 1.2, 10.0, 1.5, [500, 783.99])
+    wCsScore.playNote(f, 1.1, 11.5, 4.0, [7500, 659.25])
+    wCsScore.playNote(f, 1.2, 11.5, 4.0, [7500, 783.99])
     f.write('\n')
     # instrument 10
     wCsScore.playNote(f, 10, '0', 15.5, [])
     f.write('\n')
-    f.write('</CsScore>\n')
+    # repeat named verse http://www.csounds.com/manual/html/n.html
+    f.write('s\nn v1\n\n')
+    f.write('e\n</CsScore>\n')
 
     # -- End writing Csound Synthesizer
     f.write('</CsoundSynthesizer>')
