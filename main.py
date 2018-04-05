@@ -21,23 +21,25 @@ cs = ctcsound.Csound()
 # Write csnd file
 with open(outCsndFile,'w') as f:
 
-    # Open Csound synthesizer
+    # -- Open Csound synthesizer
     f.write('<CsoundSynthesizer>\n\n')
 
-    # Decide on Options
+    # -- Decide on Options
     wCsOptions.writeCsOptions(f)
 
-    # Start creating CsInstruments
+    # -- Start creating CsInstruments
     f.write('<CsInstruments>\n\n')
     wCsInstruments.wInstrumentForematter(f,sr,kr,nchnls)
     wCsInstruments.sinInstr(f,1,'p4','p5',1) # sine instr
     wCsInstruments.hrtfMove2ExInstr(f,1,720,0,'p3',-10,0,'p3') #hrtf instr
     f.write('</CsInstruments>\n')
 
-    # Start creating CsScore
+    # -- Start creating CsScore
     f.write('<CsScore>\n\n')
-    wCsScore.funcTable(f,1, 0, 16384, 10, [1])          # wavetable
-    wCsScore.playNote(f, 1, 0, 0.2, [15000, 440.00] )   # instrument 1
+    # function table
+    wCsScore.funcTable(f,1, 0, 16384, 10, [1])
+    # instrument 1
+    wCsScore.playNote(f, 1, 0, 0.2, [15000, 440.00] )
     wCsScore.playNote(f, 1, '+', 0.2, [15000, 466.16])
     wCsScore.playNote(f, 1, '+', 0.2, [15000, 493.88 ])
     wCsScore.playNote(f, 1, '+', 0.2, [15000, 523.25 ])
@@ -51,16 +53,15 @@ with open(outCsndFile,'w') as f:
     wCsScore.playNote(f, 1, '+', 1.5, [15000, 987.77])
     wCsScore.playNote(f, 1, '+', 4, [15000, 659.25])
     f.write('\n')
-
-    wCsScore.playNote(f, 10, '0', 15.5, []) # instrument 10
+    # instrument 10
+    wCsScore.playNote(f, 10, '0', 15.5, [])
     f.write('\n')
-    #f.write('i10 0 15.5\n\n')
-
     f.write('</CsScore>\n')
+
+    # -- End writing Csound Synthesizer
     f.write('</CsoundSynthesizer>')
 
-# Play Play Csound file
-#Csoundfile = "cSoundBook\\ambisonicsBinaural\\hrtfmove2_example_44100.csd"
+# -- Play Play Csound file
 ret = cs.compile_("csound", outCsndFile)
 if ret == ctcsound.CSOUND_SUCCESS:
     cs.perform()
