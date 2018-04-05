@@ -1,6 +1,8 @@
 def listParams(paramList):
+    paramStr = ''
     for item in paramList:
-        return(str(item)+' ')
+        paramStr += str(item)+' '
+    return(paramStr)
 def funcTable(f, tableNum, time, tableSize, genNum, paramsGen):
     """
         Generate F statment
@@ -16,4 +18,11 @@ def funcTable(f, tableNum, time, tableSize, genNum, paramsGen):
     f.write('f'+str(tableNum)+' '+str(time)+' '+str(tableSize)+' '+str(genNum))
     f.write(' '+listParams(paramsGen)+'\n')
 
-#def playInstrument(f, iNum, dur, iParams)
+def playNote(f, iNum, start, dur, iParams):
+    """ iiNum start dur iParams
+        http://www.csounds.com/manual/html/i.html
+        if want chord, iNum needs to be decimal, iNum.noteNum
+    """
+    f.write('i'+str(iNum)+' '+str(start)+' '+str(dur))
+    f.write(' '+listParams(iParams)+'\n')
+    pass

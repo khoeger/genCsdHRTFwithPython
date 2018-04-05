@@ -36,24 +36,25 @@ with open(outCsndFile,'w') as f:
 
     # Start creating CsScore
     f.write('<CsScore>\n\n')
-    wCsScore.funcTable(f,1, 0, 16384, 10, [1])  # wavetable
-    wCsScore.playNote(f, 1, 0, 0.2, [15000, 440.00] )
-    #f.write('i1 0 .2 15000 440.00 \n')          # instrument 1
-    f.write('i1 + .2 15000 466.16 \n')
-    f.write('i1 + .2 15000 493.88 \n')
-    f.write('i1 + .2 15000 523.25 \n')
-    f.write('i1 + .2 15000 587.33 \n')
-    f.write('i1 + 1.5 15000 659.25 \n')
-    f.write('i1 + 1.5 15000 698.46 \n')
-    f.write('i1 + 1.5 15000 783.99 \n')
-    f.write('i1 + 1.5 15000 880.00 \n')
-    f.write('i1 + 1.5 15000 830.61 \n')
-    f.write('i1 + 1.5 15000 783.99 \n')
-    f.write('i1 + 1.5 15000 987.77 \n')
-    f.write('i1 + 4 15000 659.25\n\n')
+    wCsScore.funcTable(f,1, 0, 16384, 10, [1])          # wavetable
+    wCsScore.playNote(f, 1, 0, 0.2, [15000, 440.00] )   # instrument 1
+    wCsScore.playNote(f, 1, '+', 0.2, [15000, 466.16])
+    wCsScore.playNote(f, 1, '+', 0.2, [15000, 493.88 ])
+    wCsScore.playNote(f, 1, '+', 0.2, [15000, 523.25 ])
+    wCsScore.playNote(f, 1, '+', 0.2, [15000, 587.33])
+    wCsScore.playNote(f, 1, '+', 1.5, [15000, 659.25])
+    wCsScore.playNote(f, 1, '+', 1.5, [15000, 698.46])
+    wCsScore.playNote(f, 1, '+', 1.5, [15000, 783.99])
+    wCsScore.playNote(f, 1, '+', 1.5, [15000, 880.00])
+    wCsScore.playNote(f, 1, '+', 1.5, [15000, 830.6])
+    wCsScore.playNote(f, 1, '+', 1.5, [15000, 783.99])
+    wCsScore.playNote(f, 1, '+', 1.5, [15000, 987.77])
+    wCsScore.playNote(f, 1, '+', 4, [15000, 659.25])
+    f.write('\n')
 
-    f.write('; Play Instrument 10 for 10 seconds.\n')
-    f.write('i10 0 15\n\n')
+    wCsScore.playNote(f, 10, '0', 15.5, []) # instrument 10
+    f.write('\n')
+    #f.write('i10 0 15.5\n\n')
 
     f.write('</CsScore>\n')
     f.write('</CsoundSynthesizer>')
