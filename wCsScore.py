@@ -1,7 +1,7 @@
 def listParams(paramList):
     paramStr = ''
     for item in paramList:
-        paramStr += str(item)+' '
+        paramStr += str(item)+' \t'
     return(paramStr)
 def funcTable(f, tableNum, time, tableSize, genNum, paramsGen):
     """
@@ -15,14 +15,14 @@ def funcTable(f, tableNum, time, tableSize, genNum, paramsGen):
         paramsGen = parameters determined by function
         See http://csounds.com/manual/html/f.html
     """
-    f.write('f'+str(tableNum)+' '+str(time)+' '+str(tableSize)+' '+str(genNum))
-    f.write(' '+listParams(paramsGen)+'\n')
+    f.write('f'+str(tableNum)+' \t'+str(time)+' \t'+str(tableSize)+' \t'+str(genNum))
+    f.write(' \t'+listParams(paramsGen)+'\n')
 
 def playNote(f, iNum, start, dur, iParams):
     """ iiNum start dur iParams
         http://www.csounds.com/manual/html/i.html
         if want chord, iNum needs to be decimal, iNum.noteNum
     """
-    f.write('i'+str(iNum)+' '+str(start)+' '+str(dur))
-    f.write(' '+listParams(iParams)+'\n')
+    f.write('i'+str(iNum)+' \t'+str(start)+' \t'+str(dur))
+    f.write(' \t'+listParams(iParams)+'\n')
     pass
