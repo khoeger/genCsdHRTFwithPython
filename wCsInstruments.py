@@ -1,12 +1,13 @@
-def wInstrumentForematter(f,sr,kr,nchnls):
+def wInstrumentForematter(f,sr,ksmps,nchnls):
     """ Write forematter into file f
         sr - audio sample rate
         kr - contro rate
+        ksmps = sr/kr
         nchnls - number of channels
     """
     f.write('sr = '+str(sr)+'\n')
-    f.write('kr = '+str(kr)+'\n')
-    f.write('ksmps = '+str(sr/kr)+'\n')
+    f.write('kr = '+str(sr/ksmps)+'\n')
+    f.write('ksmps = '+str(ksmps)+'\n')
     f.write('nchnls = '+str(nchnls)+'\n\n')
 
 def sinInstr(f,n, kamp, kcps, ifn):

@@ -12,7 +12,7 @@ import wCsScore
 # Define variables
 outCsndFile = "hrtfmove2.csd"
 sr = 44100  # audio sample rate,
-kr = 4410   # control rate
+ksmps = 1   # control rate
 nchnls =2   # number of channels
 
 # Create class object instances
@@ -30,7 +30,7 @@ with open(outCsndFile,'w') as f:
 
     # -- Start creating CsInstruments
     f.write('<CsInstruments>\n\n')
-    wCsInstruments.wInstrumentForematter(f,sr,kr,nchnls)
+    wCsInstruments.wInstrumentForematter(f,sr,ksmps,nchnls)
     wCsInstruments.sinInstr(f,1,'p4','p5',1) # sine instr
     wCsInstruments.hrtfMove2ExInstr(f,1,720,0,'p3',-10,0,'p3') #hrtf instr
     f.write('</CsInstruments>\n')
