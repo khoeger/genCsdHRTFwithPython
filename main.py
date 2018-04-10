@@ -25,6 +25,7 @@ with open(outCsndFile,'w') as f:
     f.write('<CsoundSynthesizer>\n\n')
 
     # -- Decide on Options
+    #wCsOptions.writeCsOptions(f,savePath="hrtfSinVersion.wav")
     wCsOptions.writeCsOptions(f)
 
     # -- Start creating CsInstruments
@@ -52,8 +53,8 @@ with open(outCsndFile,'w') as f:
     wCsScore.playNote(f, 1, 5.5, 1.5, [15000, 880.00])
     wCsScore.playNote(f, 1, 7.0, 1.5, [15000, 830.6])
     wCsScore.playNote(f, 1, 8.5, 1.5, [15000, 783.99])
-    wCsScore.playNote(f, 1.1, 10.0, 1.5, [14500, 987.77])
-    wCsScore.playNote(f, 1.2, 10.0, 1.5, [500, 783.99])
+    wCsScore.playNote(f, 1.1, 10.0, 1.5, [7500, 987.77])
+    wCsScore.playNote(f, 1.2, 10.0, 1.5, [7500, 783.99])
     wCsScore.playNote(f, 1.1, 11.5, 4.0, [7500, 659.25])
     wCsScore.playNote(f, 1.2, 11.5, 4.0, [7500, 783.99])
     f.write('\n')
