@@ -31,7 +31,7 @@ with open(outCsndFile,'w') as f:
     # -- Start creating CsInstruments
     f.write('<CsInstruments>\n\n')
     wCsInstruments.wInstrumentForematter(f,sr,ksmps,nchnls)
-    wCsInstruments.sinInstr(f,1,'p4','p5',1) # sine instr
+    wCsInstruments.sinInstr(f,1,'p4','p5',1,'p3') # sine instr
     wCsInstruments.hrtfMove2ExInstr(f,1,720,0,'p3',-10,0,'p3') #hrtf instr
     f.write('</CsInstruments>\n')
 
