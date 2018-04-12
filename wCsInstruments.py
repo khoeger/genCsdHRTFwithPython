@@ -41,7 +41,7 @@ def hrtfMove2ExInstr(f,n,sAz,eAz,durAz,sEl,eEl,durEl):
     f.write('  kaz	linseg '+str(sAz)+', '+str(durAz)+', '+str(eAz)+'\n')
     f.write('  kel	linseg '+str(sEl)+', '+str(durEl)+', '+str(eEl)+'\n\n')
     f.write('  abuss chnget "buss"\n')
-    f.write('  aleft, aright hrtfmove2 abuss, kaz, kel, "hrtf-44100-left.dat","hrtf-44100-right.dat"\n\n')
+    f.write('  aleft, aright hrtfmove2 abuss, kaz, kel, "hrtf-96000-left.dat","hrtf-96000-right.dat", 4, 8.15, 96000\n\n')
     f.write('  outs	aleft, aright\n')
     f.write('  chnclear "buss"\n\n')
     f.write('endin\n\n')

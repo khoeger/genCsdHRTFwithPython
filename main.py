@@ -11,7 +11,7 @@ import wCsScore
 
 # Define variables
 outCsndFile = "hrtfmove2.csd"
-sr = 44100  # audio sample rate,
+sr = 96000#44100  # audio sample rate,
 ksmps = 1   # control rate
 nchnls =2   # number of channels
 
@@ -38,7 +38,7 @@ with open(outCsndFile,'w') as f:
     # -- Start creating CsScore
     f.write('<CsScore>\n\n')
     # function table
-    wCsScore.funcTable(f,1, 0, 16384, 10, [1])
+    wCsScore.funcTable(f,1, 0, 2**20, 10, [1])
     # verse 1 - named
     f.write('\nm v1\n\n')
     # instrument 1 - http://www.csounds.com/manual/html/ScoreStatements.html
