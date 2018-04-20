@@ -30,7 +30,7 @@ with open(outCsndFile,'w') as f:
     f.write('<CsoundSynthesizer>\n\n')
 
     # -- Decide on Options
-    #wCsOptions.writeCsOptions(f,savePath="hrtfSinVersion.wav")
+    #wCsOptions.writeCsOptions(f,savePath="movingSound_4_19_2018.wav")
     wCsOptions.writeCsOptions(f)
 
     # -- Start creating CsInstruments

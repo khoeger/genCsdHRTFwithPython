@@ -109,3 +109,5 @@ venv.bak/
 *.mp3
 playMGogginsHelp.py
 playSinMel.py
+*.aup
+movingSound_4_19_2018_data
