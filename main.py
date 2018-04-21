@@ -16,7 +16,7 @@ import wCsScore
 
 
 # Define variables
-readFileName = "cabs_CsScore_v1.cs"
+readFileName = "cabs_CsScore_v2.cs"
 outCsndFile = "hrtfmove2.csd"
 sr = 96000#44100  # audio sample rate,
 ksmps = 1   # control rate
