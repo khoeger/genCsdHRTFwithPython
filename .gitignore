@@ -104,8 +104,13 @@ venv.bak/
 .mypy_cache/
 
 # My files
+
+*.aup
 *.csd
-*.wav
 *.mp3
+*.wav
+
 playMGogginsHelp.py
 playSinMel.py
+
+movingSound_4_19_2018_data/
