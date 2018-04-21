@@ -22,6 +22,7 @@ sr = 96000#44100  # audio sample rate,
 ksmps = 1   # control rate
 nchnls =2   # number of channels
 
+tempo = 120
 stftOverlaps = 4
 headRadius = 8.15 #cm
 
@@ -54,10 +55,16 @@ with open(outCsndFile,'w') as f:
     wCsScore.funcTable(f,1, 0, fTableSize, 10, [1])
     # verse 1 - named
     f.write('\nm v1\n\n')
-    f.write('\nt 0 120\n\n')
+    f.write('\nt 0 '+str(tempo)+'\n\n')
     scoreLines = csScoreToPython.readScore(readFileName)
     npScoreLines = np.asarray(scoreLines)
-    print(npScoreLines[:10])
+    scoreDF = pd.DataFrame(npScoreLines,
+                            columns = [ 'instrument number',
+                                        'start time',
+                                        'duration',
+                                        'pitch',
+                                        'note velocity'])
+    print(scoreDF[:10])
 
 
     # instrument 1 - http://www.csounds.com/manual/html/ScoreStatements.html
