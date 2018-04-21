@@ -64,9 +64,13 @@ with open(outCsndFile,'w') as f:
                                         'duration',
                                         'pitch',
                                         'note velocity'])
-    print(scoreDF[:10])
-
-
+    #print(scoreDF[:10])
+    for index, entry in scoreDF[:10].iterrows():
+        wCsScore.playNote(f, entry['instrument number'],
+                          entry['start time'],
+                          entry['duration'],
+                          [8000, entry['pitch']])
+    """
     # instrument 1 - http://www.csounds.com/manual/html/ScoreStatements.html
     wCsScore.playNote(f, 1, 0.0, 0.2, [8000, 440.00] )
     wCsScore.playNote(f, 1, 0.2, 0.2, [8000, 466.16])
@@ -83,6 +87,7 @@ with open(outCsndFile,'w') as f:
     wCsScore.playNote(f, 1.2, 10.0, 1.5, [4000, 783.99])
     wCsScore.playNote(f, 1.1, 11.5, 4.0, [2000, 659.25])
     wCsScore.playNote(f, 1.2, 11.5, 4.0, [2000, 783.99])
+    """
     f.write('\n')
     # instrument 10
     wCsScore.playNote(f, 10, '0', 15.5, [])
