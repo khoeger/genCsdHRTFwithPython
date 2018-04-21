@@ -106,6 +106,7 @@ venv.bak/
 # My files
 
 *.aup
+*.cs
 *.csd
 *.mp3
 *.wav
