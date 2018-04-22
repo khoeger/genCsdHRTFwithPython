@@ -43,8 +43,26 @@ with open(outCsndFile,'w') as f:
 
     # -- Start creating CsInstruments
     f.write('<CsInstruments>\n\n')
+
     wCsInstruments.wInstrumentForematter(f,sr,ksmps,nchnls)
+    """
+    f.write('massign 1, 1\n')
+    f.write('massign 2, 1\n')
+    f.write('massign 3, 1\n')
+    f.write('massign 4, 1\n')
+    f.write('massign 5, 1\n')
+    f.write('massign 6, 1\n')
+    f.write('massign 7, 1\n')
+    f.write('massign 8, 1\n\n')"""
+
     wCsInstruments.sinInstr(f, 1,'p4','p5',1,'p3') # sine instr
+    wCsInstruments.sinInstr(f, 2,'p4','p5',1,'p3')
+    wCsInstruments.sinInstr(f, 3,'p4','p5',1,'p3')
+    wCsInstruments.sinInstr(f, 4,'p4','p5',1,'p3')
+    wCsInstruments.sinInstr(f, 5,'p4','p5',1,'p3')
+    wCsInstruments.sinInstr(f, 6,'p4','p5',1,'p3')
+    wCsInstruments.sinInstr(f, 7,'p4','p5',1,'p3')
+    wCsInstruments.sinInstr(f, 8,'p4','p5',1,'p3')
     wCsInstruments.hrtfMove2ExInstr(f, 1, 720, 0, 'p3', -1000, 0, 'p3',
                                     sr, stftOverlaps, headRadius) #hrtf instr
     f.write('</CsInstruments>\n')
@@ -65,8 +83,9 @@ with open(outCsndFile,'w') as f:
                                         'pitch',
                                         'note velocity'])
     #print(scoreDF[:10])
-    for index, entry in scoreDF[:10].iterrows():
-        wCsScore.playNote(f, entry['instrument number'],
+    for index, entry in scoreDF.iterrows():
+        wCsScore.playNote(f,
+                          entry['instrument number'],
                           entry['start time'],
                           entry['duration'],
                           [8000, entry['pitch']])
@@ -90,7 +109,7 @@ with open(outCsndFile,'w') as f:
     """
     f.write('\n')
     # instrument 10
-    wCsScore.playNote(f, 10, '0', 15.5, [])
+    wCsScore.playNote(f, 10, '0', 75, [])
     f.write('\n')
     # repeat named verse http://www.csounds.com/manual/html/n.html
     #f.write('s\nn v1\n\n')
