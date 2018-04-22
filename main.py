@@ -54,7 +54,7 @@ with open(outCsndFile,'w') as f:
     # function table
     wCsScore.funcTable(f,1, 0, fTableSize, 10, [1])
     # verse 1 - named
-    f.write('\nm v1\n\n')
+    #f.write('\nm v1\n\n')
     f.write('\nt 0 '+str(tempo)+'\n\n')
     scoreLines = csScoreToPython.readScore(readFileName)
     npScoreLines = np.asarray(scoreLines)
@@ -93,7 +93,7 @@ with open(outCsndFile,'w') as f:
     wCsScore.playNote(f, 10, '0', 15.5, [])
     f.write('\n')
     # repeat named verse http://www.csounds.com/manual/html/n.html
-    f.write('s\nn v1\n\n')
+    #f.write('s\nn v1\n\n')
     f.write('e\n</CsScore>\n')
 
     # -- End writing Csound Synthesizer
