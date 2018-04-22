@@ -10,11 +10,11 @@ def wInstrumentForematter(f,sr,ksmps,nchnls):
     f.write('ksmps = '+str(ksmps)+'\n')
     f.write('nchnls = '+str(nchnls)+'\n\n')
 
-def sinInstr(f,n, kamp, kcps, ifn, dur):
+def sinInstr(f,n, kamp, iMidi, ifn, dur):
     """ Write an instrument, number n, that
     - outputs a sine wave
     - has amplitude kamp
-    - has kcps cycles per second
+    - has iMidi midi input number
     - is drawn from frequency table ifn
     """
     rampUp = 0.003
@@ -24,8 +24,10 @@ def sinInstr(f,n, kamp, kcps, ifn, dur):
     #f.write('gasrc'+str(n)+' init 0\n\n')
     # Make instr
     f.write('instr '+str(n)+'  \n\n')
+    f.write('inote = '+str(iMidi)+'\n\n')
+    #f.write('kcps =')
     f.write('  kamp = '+str(kamp)+'\n')
-    f.write('  kcps = '+str(kcps)+'\n')
+    f.write('  kcps = cpsmidinn(inote)\n')
     f.write('  ifn = '+str(ifn)+'\n\n')
     f.write('  a1 poscil kamp, kcps, ifn\n\n')
     f.write('  adeclick linseg 0, '+str(rampUp)+", ")
